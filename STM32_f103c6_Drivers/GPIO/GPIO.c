@@ -197,3 +197,17 @@ void MCAL_GPIO_WritePort(GPIO_TypeDef * GPIOx,uint16_t Value)
 	GPIOx->ODR = (uint32_t)Value;
 }
 
+/**
+ * @brief Toggles the state of the specified GPIO pin.
+ *
+ * This function inverts the state of the specified pin (from HIGH to LOW or vice versa).
+ *
+ * @param[in] GPIOx Pointer to the GPIO peripheral (e.g., GPIOA, GPIOB).
+ * @param[in] PinNumber The number of the pin to toggle.
+ */
+
+void MCAL_GPIO_TogglePin(GPIO_TypeDef * GPIOx, uint16_t PinNumber)
+{
+	GPIOx->ODR ^= PinNumber;
+}
+
