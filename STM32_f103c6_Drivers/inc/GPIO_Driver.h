@@ -101,3 +101,22 @@ Module_REF_NAME_define
 #define GPIO_SPEED_2M     0x00000002u  //Output mode, max speed 2 MHz.
 #define GPIO_SPEED_50M    0x00000003u  //Output mode, max speed 50 MHz.
 
+/*
+ * ===============================================
+ * APIs Supported by "MCAL GPIO DRIVER"
+ * ===============================================
+ */
+
+void MCAL_GPIO_Init           (GPIO_TypeDef * GPIOx, GPIO_PinConfig_t * PinConfig);
+void MCAL_GPIO_DeInit         (GPIO_TypeDef * GPIOx);
+
+uint8_t MCAL_GPIO_ReadPin     (GPIO_TypeDef * GPIOx,uint16_t PinNumber);
+uint16_t MCAL_GPIO_ReadPort   (GPIO_TypeDef * GPIOx);
+
+void MCAL_GPIO_WritePin       (GPIO_TypeDef * GPIOx,uint16_t PinNumber, uint8_t Value);
+void MCAL_GPIO_WritePort      (GPIO_TypeDef * GPIOx,uint16_t Value);
+
+void MCAL_GPIO_TogglePin      (GPIO_TypeDef * GPIOx, uint16_t PinNumber);
+
+
+#endif /* INC_GPIO_DRIVER_H_ */
