@@ -71,3 +71,77 @@
 
 
 //--------------------------------------------------------------------
+
+//-*-*-*-*-*-*-*-*-*-*-*
+//Peripheral register:
+//-*-*-*-*-*-*-*-*-*-*-*
+
+//-*-*-*-*-*-*-*-*-*-*-*
+//RCC register:
+//-*-*-*-*-*-*-*-*-*-*-*
+
+
+
+
+
+
+typedef struct {
+	volatile uint32_t CR;
+	volatile uint32_t CFGR;
+	volatile uint32_t CIR;
+	volatile uint32_t APB2RSTR;
+	volatile uint32_t APB1RSTR;
+	volatile uint32_t AHBENR;
+	volatile uint32_t APB2ENR;
+	volatile uint32_t APB1ENR;
+	volatile uint32_t BDCR;
+	volatile uint32_t CSR;
+
+
+}RCC_TypeDef;
+
+//-*-*-*-*-*-*-*-*-*-*-*
+//GPIO register:
+//-*-*-*-*-*-*-*-*-*-*-*
+
+typedef struct {
+	volatile uint32_t CRL;
+	volatile uint32_t CRH;
+	volatile uint32_t IDR;
+	volatile uint32_t ODR;
+	volatile uint32_t BSRR;
+	volatile uint32_t BRR;
+	volatile uint32_t LCKR;
+
+}GPIO_TypeDef;
+
+//-*-*-*-*-*-*-*-*-*-*-*
+//EXIT register:
+//-*-*-*-*-*-*-*-*-*-*-*
+
+typedef struct {
+	volatile uint32_t IMR;
+	volatile uint32_t EMR;
+	volatile uint32_t RTSR;
+	volatile uint32_t FTSR;
+	volatile uint32_t SWIER;
+	volatile uint32_t PR;
+
+}EXTI_TypeDef;
+
+//-*-*-*-*-*-*-*-*-*-*-*
+//AFIO register:
+//-*-*-*-*-*-*-*-*-*-*-*
+
+typedef struct {
+	volatile uint32_t EVCR;
+	volatile uint32_t MAPR;
+	volatile uint32_t EXTICR1;
+	volatile uint32_t EXTICR2;
+	volatile uint32_t EXTICR3;
+	volatile uint32_t EXTICR4;
+	uint32_t reserved;
+	volatile uint32_t MAPR2;
+
+}AFIO_TypeDef;
+
