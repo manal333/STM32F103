@@ -141,3 +141,18 @@ uint8_t MCAL_GPIO_ReadPin(GPIO_TypeDef * GPIOx,uint16_t PinNumber)
 
 }
 
+/**
+ * @brief Reads the state of all the pins in the specified GPIO port.
+ *
+ * This function reads the input data of the entire port and returns its value.
+ *
+ * @param[in] GPIOx Pointer to the GPIO peripheral (e.g., GPIOA, GPIOB).
+ * @return uint16_t The state of the port.
+ */
+
+uint16_t MCAL_GPIO_ReadPort(GPIO_TypeDef * GPIOx)
+{
+	uint16_t PortValue = (uint16_t)(GPIOx->IDR);
+	return PortValue;
+}
+
