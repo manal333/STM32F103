@@ -72,3 +72,49 @@ void MCAL_GPIO_Init (GPIO_TypeDef * GPIOx, GPIO_PinConfig_t * PinConfig)
 
 }
 
+/**
+ * @brief Deinitializes the specified GPIO port.
+ *
+ * This function resets all pins of the specified GPIO port to their default values.
+ *
+ * @param[in] GPIOx Pointer to the GPIO peripheral (e.g., GPIOA, GPIOB).
+ */
+
+void MCAL_GPIO_DeInit(GPIO_TypeDef * GPIOx)
+{
+	if(GPIOx == GPIOA)
+	{   // 0: No effect
+		// 1: Reset IO port A
+		RCC->APB2RSTR |= (2<<1);
+		RCC->APB2RSTR &= ~(2<<1);
+	}
+	else if(GPIOx == GPIOB)
+	{
+		// 0: No effect
+		// 1: Reset IO port B
+		RCC->APB2RSTR |= (3<<1);
+		RCC->APB2RSTR &= ~(3<<1);
+	}
+	else if(GPIOx == GPIOC)
+	{
+		// 0: No effect
+		// 1: Reset IO port C
+		RCC->APB2RSTR |= (4<<1);
+		RCC->APB2RSTR &= ~(4<<1);
+	}
+	else if(GPIOx == GPIOD)
+	{
+		// 0: No effect
+		// 1: Reset IO port D
+		RCC->APB2RSTR |= (5<<1);
+		RCC->APB2RSTR &= ~(5<<1);
+	}
+	else if(GPIOx == GPIOE)
+	{
+		// 0: No effect
+		// 1: Reset IO port E
+		RCC->APB2RSTR |= (6<<1);
+		RCC->APB2RSTR &= ~(6<<1);
+	}
+}
+
