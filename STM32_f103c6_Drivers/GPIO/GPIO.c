@@ -156,3 +156,30 @@ uint16_t MCAL_GPIO_ReadPort(GPIO_TypeDef * GPIOx)
 	return PortValue;
 }
 
+/**
+ * @brief Sets or clears the specified GPIO pin.
+ *
+ * This function writes the specified value (HIGH or LOW) to the specified pin.
+ *
+ * @param[in] GPIOx Pointer to the GPIO peripheral (e.g., GPIOA, GPIOB).
+ * @param[in] PinNumber The number of the pin to write to.
+ * @param[in] Value The value to write to the pin (0 for LOW, 1 for HIGH).
+ */
+
+void MCAL_GPIO_WritePin(GPIO_TypeDef * GPIOx,uint16_t PinNumber, uint8_t Value)
+{
+	if(Value != GPIO_STATE_LOW)
+	{
+		//0: No action on the corresponding ODRx bit
+		//1: Set the corresponding ODRx bit
+
+		GPIOx->BSRR = (uint32_t)PinNumber;
+	}
+	else
+	{
+		//0: No action on the corresponding ODRx bit
+		//1: Reset the corresponding ODRx bit
+		GPIOx->BRR = (uint32_t)PinNumber;
+	}
+}
+
