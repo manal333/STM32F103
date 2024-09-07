@@ -145,3 +145,24 @@ typedef struct {
 
 }AFIO_TypeDef;
 
+//--------------------------------------------------------------------
+
+//-*-*-*-*-*-*-*-*-*-*-*
+//Peripheral Instants:
+ //-*-*-*-*-*-*-*-*-*-*-*
+
+
+#define GPIOA   ((GPIO_TypeDef * )GPIOA_BASE)
+#define GPIOB   ((GPIO_TypeDef * )GPIOB_BASE)
+#define GPIOC   ((GPIO_TypeDef * )GPIOC_BASE)
+#define GPIOD   ((GPIO_TypeDef * )GPIOD_BASE)
+#define GPIOE   ((GPIO_TypeDef * )GPIOE_BASE)
+
+
+#define RCC     ((RCC_TypeDef * )RCC_BASE)
+
+#define EXTI    ((EXTI_TypeDef * )EXTI_BASE)
+
+#define AFIO    ((AFIO_TypeDef * )AFIO_BASE)
+
+//-----------------------------------------------------------------
