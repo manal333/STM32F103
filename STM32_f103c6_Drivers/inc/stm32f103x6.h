@@ -185,3 +185,26 @@ typedef struct {
 
 
 
+//-*-*-*-*-*-*-*-*-*-*-*
+//IVT_IQR
+//-*-*-*-*-*-*-*-*-*-*-*
+
+#define EXTI0_IQR    6
+#define EXTI1_IQR    7
+#define EXTI2_IQR    8
+#define EXTI3_IQR    9
+#define EXTI4_IQR    10
+#define EXTI5_IQR    23
+#define EXTI6_IQR    23
+#define EXTI7_IQR    23
+#define EXTI8_IQR    23
+#define EXTI9_IQR    23
+#define EXTI10_IQR   40
+#define EXTI11_IQR   40
+#define EXTI12_IQR   40
+#define EXTI13_IQR   40
+#define EXTI14_IQR   40
+#define EXTI15_IQR   40
+
+
+#endif /* INC_STM32F103X6_H_ */
