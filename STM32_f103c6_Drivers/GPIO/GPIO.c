@@ -183,3 +183,17 @@ void MCAL_GPIO_WritePin(GPIO_TypeDef * GPIOx,uint16_t PinNumber, uint8_t Value)
 	}
 }
 
+/**
+ * @brief Writes a value to the entire GPIO port.
+ *
+ * This function writes the specified value to all the pins in the specified port.
+ *
+ * @param[in] GPIOx Pointer to the GPIO peripheral (e.g., GPIOA, GPIOB).
+ * @param[in] Value The value to write to the port.
+ */
+
+void MCAL_GPIO_WritePort(GPIO_TypeDef * GPIOx,uint16_t Value)
+{
+	GPIOx->ODR = (uint32_t)Value;
+}
+
