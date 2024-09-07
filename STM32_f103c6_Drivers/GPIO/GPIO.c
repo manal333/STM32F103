@@ -28,3 +28,47 @@ uint8_t Get_CRLH_Position(uint16_t PinNumber)
 		return 28;
 }
 
+/**
+ * @brief Initializes the specified GPIO pin(s).
+ *
+ * This function configures the mode and speed for the specified GPIO pin(s).
+ *
+ * @param[in] GPIOx Pointer to the GPIO peripheral (e.g., GPIOA, GPIOB,GPIOC).
+ * @param[in] PinConfig Pointer to the configuration structure that contains the configuration information for the specified pin(s).
+ */
+
+void MCAL_GPIO_Init (GPIO_TypeDef * GPIOx, GPIO_PinConfig_t * PinConfig)
+{
+	if(PinConfig->GPIO_Pin_Number <= GPIO_PIN_7)
+	{
+		//Clear  CNF0[1:0] MODE0[1:0]
+		GPIOx->CRL &= ~(0xf<< (Get_CRLH_Position(PinConfig->GPIO_Pin_Number)));
+
+		//Set mode and Speed
+		GPIOx->CRL |= (((PinConfig->GPIO_Mode <<2) | (PinConfig->GPIO_Output_Speed)) <<(Get_CRLH_Position(PinConfig->GPIO_Pin_Number)));
+	}
+	else if(PinConfig->GPIO_Pin_Number <= GPIO_PIN_15)
+	{
+		//Clear  CNF0[1:0] MODE0[1:0]
+		GPIOx->CRH &= ~(0xf<< (Get_CRLH_Position(PinConfig->GPIO_Pin_Number)));
+
+		//Set mode and Speed
+		GPIOx->CRH |= (((PinConfig->GPIO_Mode <<2) | (PinConfig->GPIO_Output_Speed)) <<(Get_CRLH_Position(PinConfig->GPIO_Pin_Number)));
+	}
+
+	//If mode PullUp or PullDown
+	if(PinConfig->GPIO_Mode == GPIO_MODE_INPUT_PU)
+	{
+		//0: No action on the corresponding ODRx bit
+		//1: Set the corresponding ODRx bit
+		GPIOx->BSRR = (uint32_t)Get_CRLH_Position(PinConfig->GPIO_Pin_Number);
+	}
+	else if(PinConfig->GPIO_Mode == GPIO_MODE_INPUT_PD)
+	{
+		//0: No action on the corresponding ODRx bit
+		//1: Reset the corresponding ODRx bit
+		GPIOx->BRR = (uint32_t)Get_CRLH_Position(PinConfig->GPIO_Pin_Number);
+	}
+
+}
+
