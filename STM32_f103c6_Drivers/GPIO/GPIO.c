@@ -118,3 +118,26 @@ void MCAL_GPIO_DeInit(GPIO_TypeDef * GPIOx)
 	}
 }
 
+/**
+ * @brief Reads the state of the specified GPIO pin.
+ *
+ * This function reads the input data of the specified pin and returns its value (0 or 1).
+ *
+ * @param[in] GPIOx Pointer to the GPIO peripheral (e.g., GPIOA, GPIOB).
+ * @param[in] PinNumber The number of the pin to read.
+ * @return uint8_t The state of the pin (0 or 1).
+ */
+
+uint8_t MCAL_GPIO_ReadPin(GPIO_TypeDef * GPIOx,uint16_t PinNumber)
+{
+
+	uint8_t PinValue = GPIO_STATE_LOW;
+    //I can't write this condition like (if((GPIOx->IDR & PinNumber) == (uint16_t)GPIO_STATE_HIGH))
+	if((GPIOx->IDR & PinNumber) != (uint16_t)GPIO_STATE_LOW)
+	{
+		PinValue = GPIO_STATE_HIGH;
+	}
+	return PinValue;
+
+}
+
